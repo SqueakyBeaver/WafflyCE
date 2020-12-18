@@ -1,0 +1,22 @@
+palettes:
+  - name: global_palette
+    fixed-entries:
+      - image: Palette.png
+    images: automatic
+
+converts:
+  - name: sprites
+    palette: global_palette
+    transparent-color-index: 0
+    images:
+      - Pancake.png
+      - Waffle.png
+
+outputs:
+  - type: c
+    include-file: gfx.h
+    palettes:
+      - global_palette
+    converts:
+      - sprites
+

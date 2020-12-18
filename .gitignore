@@ -1,0 +1,6 @@
+# Binaries
+bin/
+# Object files
+obj/
+# Don't hurt me
+.vscode/

@@ -7,10 +7,13 @@ palettes:
 converts:
   - name: sprites
     palette: global_palette
-    transparent-color-index: 0
+    transparent-color-index: 1
+    style: rlet
     images:
       - Pancake.png
+      - WaffleUp.png
       - Waffle.png
+      - WaffleDown.png
 
 outputs:
   - type: c
@@ -19,4 +22,3 @@ outputs:
       - global_palette
     converts:
       - sprites
-

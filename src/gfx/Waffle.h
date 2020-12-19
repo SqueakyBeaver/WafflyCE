@@ -7,9 +7,9 @@ extern "C" {
 
 #define Waffle_width 24
 #define Waffle_height 24
-#define Waffle_size 578
-#define Waffle ((gfx_sprite_t*)Waffle_data)
-extern unsigned char Waffle_data[578];
+#define Waffle_size 534
+#define Waffle ((gfx_rletsprite_t*)Waffle_data)
+extern unsigned char Waffle_data[534];
 
 #ifdef __cplusplus
 }

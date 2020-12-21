@@ -12,7 +12,7 @@
 #include <keypadc.h>
 
 typedef struct {
-  gfx_rletsprite_t *m_sprite;
+  gfx_sprite_t *m_sprite;
   uint8_t m_spriteHeight;
   uint8_t m_spriteWidth;
   uint24_t m_x;

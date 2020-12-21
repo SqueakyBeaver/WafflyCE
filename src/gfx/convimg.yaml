@@ -8,7 +8,6 @@ converts:
   - name: sprites
     palette: global_palette
     transparent-color-index: 1
-    style: rlet
     images:
       - Pancake.png
       - WaffleUp.png

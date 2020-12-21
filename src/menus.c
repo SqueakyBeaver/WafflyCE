@@ -39,33 +39,21 @@ int8_t menu_Main() {
   gfx_SetTextFGColor(17);
   gfx_SetPalette(global_palette, sizeof_global_palette, 0);
   gfx_SetTransparentColor(1);
-  do {
-    gfx_FillScreen(4);
 
+  gfx_FillScreen(4);
+  gfx_SetTextFGColor(7);
+  gfx_SetTextScale(2, 2);
+  gfx_PrintStringXY("Waffly CE",
+                    (LCD_WIDTH - gfx_GetStringWidth("Waffly CE")) / 2, 40);
+  gfx_SetTextScale(1, 1);
+  gfx_SwapDraw();
+
+  for (int iterations = 0; !(kb_Data[6] & kb_Enter); ++iterations) {
     /* Scan the keypad to update kb_Data */
     kb_Scan();
 
     /* Get the arrow key statuses */
     arrows = kb_Data[7];
-
-    gfx_SetTextFGColor(7);
-    gfx_SetTextScale(2, 2);
-    gfx_PrintStringXY("Waffly CE",
-                      (LCD_WIDTH - gfx_GetStringWidth("Waffly CE")) / 2, 40);
-    gfx_SetTextScale(1, 1);
-
-    // Choice words color
-     gfx_SetTextFGColor(5);
-    for (int8_t i = 0; i < 5; ++i) {
-      // gfx_Rectangle(120, choices[i].y_coord - 5, 80, 20);
-      gfx_PrintStringXY(choices[i].message,
-                        CHOICE_STR_X_COORD(choices[i].message),
-                        choices[i].y_coord);
-    }
-
-    // Cursor Color
-    gfx_SetColor(6);
-    gfx_Rectangle(120 - 2, choices[cursor_index].y_coord - 7, 80 + 4, 20 + 4);
 
     if ((arrows & kb_Up) && !up_prev) {
       --cursor_index;
@@ -84,8 +72,26 @@ int8_t menu_Main() {
     up_prev = arrows & kb_Up;
     down_prev = arrows & kb_Down;
 
-    gfx_SwapDraw();
-  } while (!(kb_Data[6] & kb_Enter));
+    gfx_FillScreen(4);
+
+    // Choice words color
+    gfx_SetTextFGColor(5);
+    for (int8_t i = 0; i < 5; ++i) {
+      // gfx_Rectangle(120, choices[i].y_coord - 5, 80, 20);
+      gfx_PrintStringXY(choices[i].message,
+                        CHOICE_STR_X_COORD(choices[i].message),
+                        choices[i].y_coord);
+    }
+
+    // Cursor Color
+    gfx_SetColor(6);
+    gfx_Rectangle(120 - 2, choices[cursor_index].y_coord - 7, 80 + 4, 20 + 4);
+
+    // Only update the screen if it is the first draw or a key was pressed
+    if (iterations == 0 || os_GetCSC()) {
+      gfx_BlitRectangle(gfx_buffer, 60, 80, 160, 220);
+    }
+  }
 
   return cursor_index;
 }

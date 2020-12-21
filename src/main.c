@@ -67,15 +67,15 @@ int main(void) {
         break;
 
       case SETTINGS:
-        // menu_settings();
+        // menu_Settings();
         break;
 
       case ABOUT:
-        // menu_about();
+        // menu_About();
         break;
 
       case CREDITS:
-        // menu_credits();
+        // menu_Credits();
         break;
 
       case QUIT:

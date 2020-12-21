@@ -5,7 +5,7 @@
 NAME ?= WAFFLY
 ICON ?=
 DESCRIPTION ?= "Waffly devlopment"
-COMPRESSED ?= NO
+COMPRESSED ?= YES
 ARCHIVED ?= NO
 
 CFLAGS ?= -Wall -Wextra -Oz -std=c11

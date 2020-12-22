@@ -17,7 +17,7 @@
     |_______________________________|
 */
 
-#include "gfx/gfx.h"  // For the palette
+#include "gfx/gfx.h" // For the palette
 #include "menus.h"
 #include "play.h"
 
@@ -50,46 +50,46 @@
 #define QUIT 4
 
 int main(void) {
-  gfx_Begin();
-  gfx_SetDrawBuffer();
+    gfx_Begin();
+    gfx_SetDrawBuffer();
 
-  gfx_SetPalette(global_palette, sizeof_global_palette, 0);
-  gfx_SetTransparentColor(0);
+    gfx_SetPalette(global_palette, sizeof_global_palette, 0);
+    gfx_SetTransparentColor(0);
 
-  // The user has not pressed quit
-  bool running = true;
+    // The user has not pressed quit
+    bool running = true;
 
-  while (running) {
-    int8_t choice = menu_Main();
-    switch (choice) {
-      case PLAY:
-        play_Main();
-        break;
+    while (running) {
+        int8_t choice = menu_Main();
+        switch (choice) {
+        case PLAY:
+            play_Main();
+            break;
 
-      case SETTINGS:
-        // menu_Settings();
-        break;
+        case SETTINGS:
+            // menu_Settings();
+            break;
 
-      case ABOUT:
-        // menu_About();
-        break;
+        case ABOUT:
+            // menu_About();
+            break;
 
-      case CREDITS:
-        // menu_Credits();
-        break;
+        case CREDITS:
+            // menu_Credits();
+            break;
 
-      case QUIT:
-        running = false;
-        break;
+        case QUIT:
+            running = false;
+            break;
 
-      default:
-        // If this is triggered, idk man
-        break;
+        default:
+            // If this is triggered, idk man
+            break;
+        }
+        choice = -1;
     }
-    choice = -1;
-  }
 
-  gfx_End();
+    gfx_End();
 
-  return 0;
+    return 0;
 }

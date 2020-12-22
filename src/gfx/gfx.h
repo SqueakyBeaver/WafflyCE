@@ -8,9 +8,9 @@ extern "C" {
 #include "global_palette.h"
 #define sprites_palette_offset 0
 #include "Pancake.h"
-#include "WaffleUp.h"
 #include "Waffle.h"
 #include "WaffleDown.h"
+#include "WaffleUp.h"
 
 #ifdef __cplusplus
 }

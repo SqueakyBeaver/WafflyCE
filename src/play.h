@@ -7,13 +7,13 @@
 void play_Main();
 
 typedef struct {
-  int8_t x;
-  int8_t y;
+    int8_t x;
+    int8_t y;
 } increment_t;
 
 typedef struct {
-  uint24_t x;
-  int8_t y;
+    uint24_t x;
+    int8_t y;
 } waffle_t;
 
 #endif
